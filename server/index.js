@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 3001;
 //mongoose를 이용하여 애플리케이션과 Mongo DB를 연결할 것
 const mongoose = require("mongoose");
 //auth.js에서 만든 auth 가져오기
@@ -103,6 +103,10 @@ app.get("/api/users/logout", auth, (req, res) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).send({ success: true });
   });
+});
+
+app.get("/api/hello", (req, res) => {
+  res.send("안녕하세요~~");
 });
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
